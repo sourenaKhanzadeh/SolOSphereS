@@ -25,9 +25,9 @@ transition: slide-left
 css: unocss
 ---
 
-# Welcome to Slidev
+# SolOSphere
 
-Presentation slides for developers
+SolOSphere the ultimate solution for solidty contracts
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
@@ -37,22 +37,32 @@ The last comment block of each slide will be treated as slide notes. It will be 
 transition: fade-out
 ---
 
-# What is Slidev?
+# SoloSphere Components
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+List of all the components
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
 
-<br>
-<br>
+- 🥼**SolOLab** - This component focuses on the experiments
+- 📱 **SMARTS** - This component focuses on scraping smart contracts
+- ☢️ **SolO** - The main core optimizer
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+```mermaid
+graph LR
+  A[SolOSphere] --> B(SolO)
+  A --> C(SMARTS)
+  A --> D(SoliLab)
+
+  input1[Input: Contract Source] --> B
+  B --> output1[Output: Optimized Contract]
+  output1 --> D
+
+  input2[Input: Scraped Contracts] --> C
+  C --> output2[Output: Contract Dataset]
+  output2 --> D
+
+  input3[Input: Contract Comparison] --> D
+  D --> output3[Output: Gas Estimate Comparison]
+```
 
 <!--
 You can have `style` tag in markdown to override the style for the current page.
