@@ -50,7 +50,7 @@ List of all the components
 graph LR
   A[SolOSphere] --> B(SolO)
   A --> C(SMARTS)
-  A --> D(SoliLab)
+  A --> D(SolOLab)
 
   input1[Input: Contract Source] --> B
   B --> output1[Output: Optimized Contract]
@@ -87,28 +87,58 @@ Here is another comment.
 
 ---
 transition: slide-up
+layout: two-cols
 ---
 
-# Navigation
+# SolO Patterns
+**SolO** - The main core optimizer
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+- Packing
+  - Struct Packing ✅ 
+  - Variable Packing ✅
+  - Boolean Packing ⛔️
+- Types
+  - Uint* vs Uint256 ⛔️
+  - Bytes vs Strings ⛔️
+  - Fixed Size
+  - Default Value ✅
+- Data Location
+  - Call Data vs Memory ✅
+  - Freeing Storage
 
-### Keyboard Shortcuts
+::right::
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+- Function Visibility
+  - Internal vs External ✅
+  - Constant and Immutable
+- Operation Reduction
+  - Reducing Expression
+  - Short Circuiting
+  - Write Values
+  - Single Line Swap
+- Function Reduction
+  - Limit Number of Functions ⛔️
+  - Limit Modifiers ⛔️
+- Loop Combination
+  - Prohibit The Use of Nested Loops
+  - Simplify Multiple Loops
+  - Repetitive Arithmetic Operations in Loop ✅
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+---
+transition: slide-up
+layout: two-cols
+---
+
+# SolO Patterns (cont.)
+**SolO** - The main core optimizer
+
+- Caching
+  - Cache Storage Variable ✅
+  - Caching Member Variable
+  - Cache Array Length
+  - Loop Increment ✅
+- Mapping 
+  - Mapping vs Array
 
 ---
 layout: image-right
