@@ -100,28 +100,28 @@ layout: two-cols
 - Types
   - Uint* vs Uint256 ⛔️
   - Bytes vs Strings ⛔️
-  - Fixed Size
+  - Fixed Size 2️⃣
   - Default Value ✅
 - Data Location
   - Call Data vs Memory ✅
-  - Freeing Storage
+  - Freeing Storage 2️⃣
 
 ::right::
 
 - Function Visibility
-  - Internal vs External ✅
-  - Constant and Immutable
+  - Internal vs External 2️⃣
+  - Constant and Immutable 2️⃣
 - Operation Reduction
-  - Reducing Expression
-  - Short Circuiting
-  - Write Values
-  - Single Line Swap
+  - Reducing Expression 2️⃣
+  - Short Circuiting ⛔️
+  - Write Values  2️⃣
+  - Single Line Swap 2️⃣
 - Function Reduction
   - Limit Number of Functions ⛔️
   - Limit Modifiers ⛔️
 - Loop Combination
-  - Prohibit The Use of Nested Loops
-  - Simplify Multiple Loops
+  - Prohibit The Use of Nested Loops ⛔️
+  - Simplify Multiple Loops ⛔️
   - Repetitive Arithmetic Operations in Loop ✅
 
 ---
@@ -134,11 +134,11 @@ layout: two-cols
 
 - Caching
   - Cache Storage Variable ✅
-  - Caching Member Variable
-  - Cache Array Length
+  - Caching Member Variable 2️⃣
+  - Cache Array Length 2️⃣
   - Loop Increment ✅
 - Mapping 
-  - Mapping vs Array
+  - Mapping vs Array 2️⃣
 
 ---
 layout: image-right
