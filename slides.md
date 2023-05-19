@@ -100,22 +100,22 @@ layout: two-cols
 - Types
   - Uint* vs Uint256 ⛔️
   - Bytes vs Strings ⛔️
-  - Fixed Size 2️⃣
+  - Fixed Size 2️⃣ ✅
   - Default Value ✅
 - Data Location
   - Call Data vs Memory ✅
-  - Freeing Storage 2️⃣
+  - Freeing Storage ⛔️
 
 ::right::
 
 - Function Visibility
-  - Internal vs External 2️⃣
-  - Constant and Immutable 2️⃣
+  - Internal vs External 2️⃣🤕
+  - Constant and Immutable 2️⃣ ✅
 - Operation Reduction
-  - Reducing Expression 2️⃣
+  - Reducing Expression 2️⃣ ✅
   - Short Circuiting ⛔️
-  - Write Values  2️⃣
-  - Single Line Swap 2️⃣
+  - Write Values  2️⃣ 🤕
+  - Single Line Swap 2️⃣ 🤕
 - Function Reduction
   - Limit Number of Functions ⛔️
   - Limit Modifiers ⛔️
