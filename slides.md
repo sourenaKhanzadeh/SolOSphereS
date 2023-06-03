@@ -25,7 +25,7 @@ transition: slide-left
 css: unocss
 ---
 
-# SolOSphere
+# A Comprehensive Study on SolOSphere: An Advanced Tool Suite for Solidity Contract Optimization
 
 SolOSphere the ultimate solution for solidty contracts
 
@@ -87,6 +87,115 @@ Here is another comment.
 
 ---
 transition: slide-up
+---
+
+# Introduction
+The advent of Solidity Smart Contracts
+
+- Solidity as the primary language for Ethereum Smart Contracts.
+- The rise of smart contracts and their potential to revolutionize contractual agreements.
+
+<img src="/res/ethereum.jpg" alt="Ethereum" width="500" height="500"/>
+
+
+---
+transition: slide-up
+---
+
+# Introduction (cont.)
+Problem Statement
+
+- The inefficiencies and complexities of current smart contracts due to inefficient gas usage.
+- The gap between the potential of smart contracts and their real-world performance.
+
+
+---
+transition: slide-up
+---
+
+# Introduction (cont.)
+The Solution
+
+- Introduction to SolOSphere, the comprehensive suite designed for contract optimization.
+- Overview of SolOSphere components: SolO, SolOLab, SMARTS, and SMARTS-GPT.
+- How SolOSphere addresses the issue of inefficient gas usage in smart contracts.
+
+
+---
+transition: slide-up
+---
+
+# Background
+Solidity Smart Contracts
+
+- **Solidity**: A statically-typed, contract-oriented programming language widely used for developing Ethereum Smart Contracts.
+- **Smart Contracts**: Autonomous, self-executing contracts with the terms of the agreement directly written into code. They exist across a distributed, decentralized blockchain network.
+- **Role of Solidity in Smart Contracts**: Solidity provides the necessary constructs to build complex contracts on the Ethereum network, fostering a wide range of decentralized applications (DApps).
+
+```mermaid
+graph LR
+  Solidity -->|Develops| Ethereum_Smart_Contracts
+  Ethereum_Smart_Contracts -->|Exists In| Blockchain
+  Ethereum_Smart_Contracts -->|Allows| Decentralized_Applications
+```
+
+---
+transition: slide-up
+---
+
+# Background (cont.)
+Gas in Ethereum Network
+
+- **Gas**: An internal pricing unit for running transactions or smart contracts on Ethereum.
+- **Purpose of Gas**: Used to allocate resources of the Ethereum virtual machine (EVM), ensuring that contracts run efficiently and securely.
+- **Gas and Contract Execution**: Each operation in the execution of a contract consumes a certain amount of gas, with more complex computations requiring more gas.
+
+
+```mermaid
+graph LR
+  Transactions -->|Requires| Gas
+  Gas -->|Allocates Resources of| EVM
+  Gas -->|Determines Efficiency of| Smart_Contract_Execution
+```
+
+---
+transition: slide-up
+---
+
+# Background (cont.)
+Miners and the Ethereum Network
+
+- **Miners**: Individuals or entities that validate new transactions and record them on the global ledger (blockchain).
+- **Role of Miners**: Miners play a crucial role in maintaining the integrity of the Ethereum network. They validate and execute smart contract computations.
+- **Gas and Miners**: Miners are compensated for their computational work in 'gas fees', which are paid by the users initiating the smart contract.
+
+```mermaid
+graph LR
+  Miners -->|Validates and Records| Transactions
+  Miners -->|Maintains Integrity of| Ethereum_Network
+  Users -->|Pays| Gas_Fees
+  Gas_Fees -->|Compensates| Miners
+```
+---
+transition: slide-up
+---
+
+# Background (cont.)
+Parsing and Deploying Smart Contracts
+
+- **Parsing**: The process of analyzing a string of symbols in a programming language. In the context of Solidity contracts, parsing refers to reading and interpreting the contract's code.
+- **Deploying**: The process of taking a contract written in Solidity and placing it onto the Ethereum blockchain, where it is executed within the EVM.
+
+```mermaid
+graph LR
+  Solidity_Contracts -- Parsing --> Interpreted_Contracts
+  Interpreted_Contracts -- Optimizing --> Optimized_Contracts
+  Optimized_Contracts -- Deploying --> Ethereum_Blockchain
+```
+
+
+---
+transition: slide-up
 layout: two-cols
 ---
 
@@ -94,27 +203,27 @@ layout: two-cols
 **SolO** - The main core optimizer
 
 - Packing
-  - Struct Packing ✅ 
-  - Variable Packing ✅
+  - Struct Packing ✅ ✅
+  - Variable Packing ✅ ✅
   - Boolean Packing ⛔️
 - Types
   - Uint* vs Uint256 ⛔️
   - Bytes vs Strings ⛔️
   - Fixed Size 2️⃣ ✅
-  - Default Value ✅
+  - Default Value ✅ ✅
 - Data Location
-  - Call Data vs Memory ✅
+  - Call Data vs Memory ✅ ✅
   - Freeing Storage ⛔️
 
 ::right::
 
 - Function Visibility
-  - Internal vs External 2️⃣🤕
+  - Internal vs External 2️⃣ ✅
   - Constant and Immutable 2️⃣ ✅
 - Operation Reduction
   - Reducing Expression 2️⃣ ✅
   - Short Circuiting ⛔️
-  - Write Values  2️⃣ 🤕
+  - Write Values  2️⃣ ✅
   - Single Line Swap 2️⃣ 🤕
 - Function Reduction
   - Limit Number of Functions ⛔️
@@ -122,7 +231,7 @@ layout: two-cols
 - Loop Combination
   - Prohibit The Use of Nested Loops ⛔️
   - Simplify Multiple Loops ⛔️
-  - Repetitive Arithmetic Operations in Loop ✅
+  - Repetitive Arithmetic Operations in Loop ✅ ✅
 
 ---
 transition: slide-up
@@ -133,12 +242,12 @@ layout: two-cols
 **SolO** - The main core optimizer
 
 - Caching
-  - Cache Storage Variable ✅
-  - Caching Member Variable 2️⃣
-  - Cache Array Length 2️⃣
-  - Loop Increment ✅
+  - Cache Storage Variable ✅ ✅
+  - Caching Member Variable 2️⃣ ✅
+  - Cache Array Length 2️⃣ ✅
+  - Loop Increment ✅ ✅
 - Mapping 
-  - Mapping vs Array 2️⃣
+  - Mapping vs Array ⛔️
 
 ---
 layout: image-right
