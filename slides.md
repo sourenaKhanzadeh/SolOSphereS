@@ -37,57 +37,6 @@ The last comment block of each slide will be treated as slide notes. It will be 
 transition: fade-out
 ---
 
-# SoloSphere Components
-
-List of all the components
-
-
-- 🥼**SolOLab** - This component focuses on the experiments
-- 📱 **SMARTS** - This component focuses on scraping smart contracts
-- ☢️ **SolO** - The main core optimizer
-
-```mermaid
-graph LR
-  A[SolOSphere] --> B(SolO)
-  A --> C(SMARTS)
-  A --> D(SolOLab)
-
-  input1[Input: Contract Source] --> B
-  B --> output1[Output: Optimized Contract]
-  output1 --> D
-
-  input2[Input: Scraped Contracts] --> C
-  C --> output2[Output: Contract Dataset]
-  output2 --> D
-
-  input3[Input: Contract Comparison] --> D
-  D --> output3[Output: Gas Estimate Comparison]
-```
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
----
 
 # Introduction
 The advent of Solidity Smart Contracts
@@ -196,6 +145,199 @@ graph LR
 
 ---
 transition: slide-up
+---
+
+# Methodology
+Overview
+
+- Process begins with the utilization of SMARTS to scrape GitHub for contract source codes.
+- These source codes are parsed and unparsed using SolO to verify its functionality.
+- Generation of new contracts using SMARTS-GPT and text-DaVinci-003 model.
+- Deployment of generated contracts and comparison of gas usage between optimized and unoptimized versions using SolOLab.
+- Creation and mutation of custom contracts for further testing and verification of SolO.
+
+```mermaid
+graph LR
+  A[Scrape GitHub Using SMARTS] --> B[Parse and Unparse Using SolO]
+  B --> C[Generate Contracts Using SMARTS-GPT]
+  C --> D[Deploy and Compare Gas Using SolOLab]
+  D --> E[Create and Mutate Custom Contracts]
+```
+
+---
+transition: slide-up
+---
+
+# Methodology (cont.)
+SMARTS and GitHub
+
+- SMARTS retrieves smart contract source codes from GitHub.
+- 612 files were tested to verify the functionality of SolO's parser and unparser.
+- Challenges faced: Out of 612 files, 417 did not function due to unparser errors.
+
+
+```mermaid
+graph LR
+  A[SMARTS] -- Scrapes --> B[GitHub Source Codes]
+  B -- Tests --> C[SolO Parser and Unparser]
+  C -- Faces Challenges --> D[417 Files with Unparser Errors]
+```
+
+---
+transition: slide-up
+---
+
+# Methodology (cont.)
+SMARTS-GPT and Contract Generation
+
+- SMARTS-GPT, with the text-DaVinci-003 model, was used to generate 192 new contracts.
+- Minor fixes were required in some contracts due to inaccuracies in the GPT model.
+- These contracts were used to verify the deployment and comparison of gas consumption in SolOLab.
+
+```mermaid
+graph LR
+  A[SMARTS-GPT with text-DaVinci-003 Model] --> B[Generation of 192 New Contracts]
+  B -- Requires Fixes --> C[Contracts with Inaccuracies]
+  C -- Used for Verification --> D[Deployment and Gas Comparison in SolOLab]
+```
+
+---
+transition: slide-up
+---
+
+# Methodology (cont.)
+SolOLab and Contract Deployment
+
+- Contracts were divided into two folders - optimized and unoptimized.
+- Python Brownie was used to deploy the contracts and compare the gas usage.
+- Results: Slight optimization in gas, but all contracts were successfully deployed.
+
+
+```mermaid
+graph LR
+  A[Contracts Divided into Optimized and Unoptimized] --> B[Deployment Using Python Brownie]
+  B -- Compares Gas Usage --> C[Results: Slight Gas Optimization]
+  B -- Confirms Successful Deployment --> C
+```
+
+---
+transition: slide-up
+---
+# Methodology (cont.)
+Custom Contracts
+
+- Five custom contracts were created for testing.
+- Using GPT, these contracts were mutated into 50 unique versions.
+- The mutated contracts were deployed and their gas was compared, demonstrating successful optimization, particularly for loops.
+
+
+```mermaid
+graph TB
+  A[Creation of Five Custom Contracts] --> B[Mutation into 50 Unique Versions using GPT]
+  B -- Deployed and Gas Compared --> C[Successful Optimization, Particularly for Loops]
+```
+
+---
+transition: slide-up
+---
+
+# SoloSphere Components
+
+List of all the components
+
+
+- 🥼**SolOLab** - This component focuses on the experiments
+- 📱 **SMARTS** - This component focuses on scraping smart contracts
+- ☢️ **SolO** - The main core optimizer
+
+```mermaid
+graph LR
+  A[Raw Solidity Contracts] -->|Input| B(SolOSphere)
+  B -->|Parsing| C{Solidity Parser}
+  C -->|Abstract Syntax Tree AST| D[SolO Optimizer]
+  D -->|Optimized AST| E{Unparser}
+  E -->|Optimized Source Code| F[Optimized Solidity Contracts]
+  B -->|SMARTS| G[Contract Retrieval from GitHub]
+  B -->|SMARTS-GPT| H[Contract Generation]
+  H --> C
+  G --> C
+  B -->|SolOLab| I[Deployment & Gas Comparison]
+  F --> I
+  click B "https://github.com/SolOSphere"
+  style B fill:#f9d,stroke:#333,stroke-width:2px
+  style C fill:#fd9,stroke:#333,stroke-width:2px
+  style D fill:#9df,stroke:#333,stroke-width:2px
+  style E fill:#9fd,stroke:#333,stroke-width:2px
+  style F fill:#df9,stroke:#333,stroke-width:2px
+  style G fill:#f9d,stroke:#333,stroke-width:2px
+  style H fill:#9fd,stroke:#333,stroke-width:2px
+  style I fill:#9fd,stroke:#333,stroke-width:2px
+```
+
+<!--
+You can have `style` tag in markdown to override the style for the current page.
+Learn more: https://sli.dev/guide/syntax#embedded-styles
+-->
+
+<style>
+h1 {
+  background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+<!--
+Here is another comment.
+-->
+
+---
+transition: slide-up
+layout: two-cols
+---
+
+# SolO
+Parser
+
+
+```solidity
+contract SimpleContract {
+  uint x;
+  uint total = 100;
+  
+  function setX(uint _x) public {
+    x = _x;
+  }
+}
+```
+
+
+::right::
+
+```mermaid
+graph TB
+  Root --> Contract[Contract: SimpleContract]
+  Contract --> StateVariableDeclaration1[StateVariableDeclaration: x]
+  StateVariableDeclaration1 --> VariableDeclaration1[VariableDeclaration: uint x]
+  Contract --> StateVariableDeclaration2[StateVariableDeclaration: total]
+  StateVariableDeclaration2 --> VariableDeclaration2[VariableDeclaration: uint total]
+  VariableDeclaration2 --> NumberLiteral[NumberLiteral: 100]
+  Contract --> FunctionDefinition[FunctionDefinition: setX]
+  FunctionDefinition --> Parameter[Parameter: _x]
+  Parameter --> VariableDeclaration3[VariableDeclaration: uint _x]
+  FunctionDefinition --> ExpressionStatement[ExpressionStatement: x = _x]
+  ExpressionStatement --> Identifier1[Identifier: x]
+  ExpressionStatement --> Identifier2[Identifier: _x]
+
+```
+
+
+---
+transition: slide-up
 layout: two-cols
 ---
 
@@ -203,35 +345,35 @@ layout: two-cols
 **SolO** - The main core optimizer
 
 - Packing
-  - Struct Packing ✅ ✅
-  - Variable Packing ✅ ✅
+  - Struct Packing ✅ 
+  - Variable Packing ✅ 
   - Boolean Packing ⛔️
 - Types
   - Uint* vs Uint256 ⛔️
   - Bytes vs Strings ⛔️
-  - Fixed Size 2️⃣ ✅
-  - Default Value ✅ ✅
+  - Fixed Size ✅
+  - Default Value ✅ 
 - Data Location
-  - Call Data vs Memory ✅ ✅
+  - Call Data vs Memory ✅ 
   - Freeing Storage ⛔️
 
 ::right::
 
 - Function Visibility
-  - Internal vs External 2️⃣ ✅
-  - Constant and Immutable 2️⃣ ✅
+  - Internal vs External  ✅
+  - Constant and Immutable  ✅
 - Operation Reduction
-  - Reducing Expression 2️⃣ ✅
+  - Reducing Expression  ✅
   - Short Circuiting ⛔️
-  - Write Values  2️⃣ ✅
-  - Single Line Swap 2️⃣ 🤕
+  - Write Values   ✅
+  - Single Line Swap ✅
 - Function Reduction
   - Limit Number of Functions ⛔️
   - Limit Modifiers ⛔️
 - Loop Combination
   - Prohibit The Use of Nested Loops ⛔️
   - Simplify Multiple Loops ⛔️
-  - Repetitive Arithmetic Operations in Loop ✅ ✅
+  - Repetitive Arithmetic Operations in Loop ✅
 
 ---
 transition: slide-up
@@ -242,12 +384,71 @@ layout: two-cols
 **SolO** - The main core optimizer
 
 - Caching
-  - Cache Storage Variable ✅ ✅
-  - Caching Member Variable 2️⃣ ✅
-  - Cache Array Length 2️⃣ ✅
-  - Loop Increment ✅ ✅
+  - Cache Storage Variable  ✅
+  - Caching Member Variable  ✅
+  - Cache Array Length ✅
+  - Loop Increment ✅ 
 - Mapping 
   - Mapping vs Array ⛔️
+
+
+---
+transition: slide-up
+---
+
+# SolO Patterns (cont.)
+High level Optimizations Overview
+
+```mermaid
+graph LR
+  Start[Start: Solidity Contract Source Code] --> Parser[Load Contract into Solidity Parser]
+  Parser --> Parse[Parse: Break Contract into Syntax Tree]
+  Parse --> Traverse1{Traverse Syntax Tree}
+  Traverse1 --> PatternMatch1{Pattern Match?}
+  PatternMatch1 --> |Yes| ApplyPattern1[Apply SolO Pattern]
+  ApplyPattern1 --> Traverse2{Traverse Syntax Tree}
+  Traverse2 --> PatternMatch2{Pattern Match?}
+  PatternMatch2 --> |Yes| ApplyPattern2[Apply Another SolO Pattern]
+  ApplyPattern2 --> Traverse3{Traverse Syntax Tree}
+  Traverse3 --> PatternMatch3{Pattern Match?}
+  PatternMatch3 --> |Yes| ApplyPattern3[Apply Another SolO Pattern]
+  PatternMatch1 --> |No| End[End: Optimized Solidity Contract Source Code]
+  PatternMatch2 --> |No| End
+  PatternMatch3 --> |No| End
+
+```
+
+```mermaid
+graph LR;
+    A[Raw Solidity Contract]
+    B[Parser]
+    C[Abstract Syntax Tree AST]
+    D[Optimizer]
+    E[Optimized AST]
+    F[Unparser]
+    G[Optimized Solidity Contract]
+    A-->B;
+    B-->C;
+    C-->D;
+    D-->E;
+    E-->F;
+    F-->G;
+    class A phase1
+    class B phase2
+    class C phase3
+    class D phase4
+    class E phase5
+    class F phase6
+    class G phase7
+    classDef phase1 fill:#f9d,stroke:#333,stroke-width:2px;
+    classDef phase2 fill:#fd9,stroke:#333,stroke-width:2px;
+    classDef phase3 fill:#9df,stroke:#333,stroke-width:2px;
+    classDef phase4 fill:#9fd,stroke:#333,stroke-width:2px;
+    classDef phase5 fill:#df9,stroke:#333,stroke-width:2px;
+    classDef phase6 fill:#f9d,stroke:#333,stroke-width:2px;
+    classDef phase7 fill:#9fd,stroke:#333,stroke-width:2px;
+
+```
 
 ---
 layout: image-right
