@@ -147,6 +147,18 @@ graph LR
 transition: slide-up
 ---
 
+# Related Work
+Existing Optimizers
+
+- GasSaver
+- GASOL
+- GasChecker
+
+
+---
+transition: slide-up
+---
+
 # Methodology
 Overview
 
@@ -451,293 +463,77 @@ graph LR;
 ```
 
 ---
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+transition: slide-up
 ---
 
-# Code
+# Evaluation
+Format
 
-Use code snippets and get the highlighting directly![^1]
+<Transform scale=0.5>
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
-```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
+| Contract1 Name | Contract1 Gas | Contract2 Name | Contract2 Gas | Counter Contract1 | Counter Contract2 | Loop24 Contract1 | Loop24 Contract2 | X Contract1 | X Contract2 |
+|----------------|---------------|----------------|---------------|-------------------|-------------------|------------------|------------------|-------------|-------------|
+| mutated41      | 298144        | Opt_mutated41  | 274852        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| mutated9       | 298144        | Opt_mutated9   | 274852        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| mutated8       | 295138        | Opt_mutated8   | 272044        | 23414             | 23414             | 43965            | 36757            | 23370       | 23370       |
+| mutated40      | 298144        | Opt_mutated40  | 274852        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| mutated42      | 298144        | Opt_mutated42  | 274852        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| simple4        | 267262        | Opt_simple4    | 244167        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| mutated43      | 298144        | Opt_mutated43  | 274852        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| mutated47      | 298144        | Opt_mutated47  | 274852        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| simple1        | 105879        | Opt_simple1    | 105879        | 23370             | 23370             | -                | -                | -           | -           |
+| mutated46      | 280870        | Opt_mutated46  | 257776        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| mutated44      | 298144        | Opt_mutated44  | 274852        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| simple3        | 248487        | Opt_simple3    | 225633        | 23392             | 23392             | 40127            | 32916            | 23370       | 23370       |
+| simple2        | 148547        | Opt_simple2    | 147479        | 23370             | 23370             | 40105            | 32897            | -           | -           |
+| mutated45      | 298144        | Opt_mutated45  | 274852        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| -              | -             | -              | -             | -                 | -                 | -                | -                | -           | -           |
+| mutated23      | 266818        | Opt_mutated23  | 243735        | 23414             | 23414             | 40005            | 32797            | 23370       | 23370       |
+| mutated37      | 298144        | Opt_mutated37  | 274852        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+| mutated21      | 298132        | Opt_mutated21  | 274852        | 23414             | 23414             | 40149            | 32941            | 23370       | 23370       |
+ 
+</Transform>
 
 
 ---
-class: px-20
+transition: slide-up
 ---
 
-# Themes
+# Evaluation (cont.)
+Chart 1 Deployment
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
+<img src="/res/contract1vs2.png" width="600" height="600"/>
 
 ---
 
-# LaTeX
+# Evaluation (cont.)
+Chart 2 Execution of loop24
 
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
+<img src="/res/loop24.png" width="600" height="600"/>
 
 ---
 
-# Diagrams
+# Future Work
+SoloSphere's future
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+## Enhancing Pattern Recognition
+- Expanding the unparser to recognize a broader range of patterns.
+- Implementing an AI system that identifies patterns autonomously.
 
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
+## Optimization Improvements
+- Further development of gas optimization algorithms.
+- Implementation of an AI-driven system that optimizes gas usage automatically.
 
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
+## Broadening Capabilities
+- Increase the diversity and versatility of recognized patterns for more comprehensive coverage.
+- Automated adjustment and improvement in response to evolving Ethereum protocols.
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
 
 ---
-src: ./pages/multiple-entries.md
-hide: false
----
 
----
-layout: center
-class: text-center
----
+# Conclusion
+SoloSphere's conclusion
 
-# Learn More
-
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+## Project Achievements
+- Successfully developed Solosphere for Ethereum gas optimization.
+- Recognized and utilized various patterns for gas reduction.
